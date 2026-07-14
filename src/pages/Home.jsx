@@ -6,6 +6,7 @@ function Home() {
   const [courses, setCourses] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [saying, setSaying] = useState(null)
 
   useEffect(() => {
     async function fetchCourses() {
@@ -22,13 +23,23 @@ function Home() {
       setLoading(false)
     }
 
+    async function fetchSaying() {
+      const { data, error } = await supabase.functions.invoke('get-saying')
+      if (!error) {
+        setSaying(data.saying)
+      }
+    }
+
     fetchCourses()
+    fetchSaying()
   }, [])
 
   return (
     <Container className="my-4">
       <h1>Welcome to CS571</h1>
       <p className="lead">Explore our course offerings below.</p>
+
+      {saying && <Alert variant="secondary" className="fst-italic">"{saying}"</Alert>}
 
       {loading && <Spinner animation="border" role="status" />}
       {error && <Alert variant="danger">Failed to load courses: {error}</Alert>}

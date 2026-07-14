@@ -3,3 +3,7 @@
 // access control is enforced by Row Level Security policies, not key secrecy.
 export const SUPABASE_URL = 'https://bssunznicyummipkrbku.supabase.co'
 export const SUPABASE_ANON_KEY = 'sb_publishable_zLHMMYtI1B2QXyI2SBljfw_VcSQ4YM9'
+
+// UI-level convenience only — the real access control is enforced by the
+// Supabase RLS policies in supabase/admin_policies.sql, not this constant.
+export const ADMIN_EMAIL = 'ctnelson1997@gmail.com'

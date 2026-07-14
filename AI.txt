@@ -1,0 +1,1 @@
+99% of the code was AI-generated using Claude Sonnet, 1% was handwritten. handwritten code was minor tweaks to logic, my role was orchestrating cluade to work with my supabase project.
